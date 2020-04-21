@@ -13,15 +13,30 @@
 	<title>Typoet</title>
 </head>
 <body>
+	<div class="modal">
+		<div class="body welcome">
+			<h2>Welcome To Typoet</h2>
+			<p class="info">Typoet is a game to practice and improve your typing skill.
+				random words will appear and you have to spell them before time ends.</p>
+			<div class="nav">
+				<button class="btn start-game" onclick="start()">Start Playing</button>
+			</div>
+		</div>
+		<div class="body died">
+			<h2>Final Score: <span class="final-score">200</span></h2>
+			<p class="info">Thank you for participating in your game, we hope you had fun playing it.</p>
+			<div class="nav">
+				<button class="btn start-game">Start Again</button>
+			</div>
+		</div>
+	</div>
 	<div id="app">
-		
-		
 		
 		<div class="bottom-nav">
 			<div class="progress-bar"></div>
 			<div class="nav">
 				<p class="typed"></p>
-				<p>Score: 00</p>
+				<p>Score: <span class="scoreEl">00</span></p>
 			</div>
 		</div>
 		

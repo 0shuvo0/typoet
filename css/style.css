@@ -21,6 +21,57 @@ a:hover,button:hover {
 	cursor: pointer;
 }
 
+.modal{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 0 3px rgba(0, 0, 0, 0.05);
+	z-index: 999;
+}
+.modal .body{
+	width: 250px;
+	padding: 25px;
+	border-radius: 3px;
+	background-color: #fff;
+	transition: opacity 0.3s, transform 0.3s;
+	opacity: 1;
+	transform: scale(1);
+}
+.modal.hide{
+	opacity: 0;
+	transform: scale(0);
+}
+.modal .body.died{
+	display: none;
+}
+.modal .body .info{
+	font-size: 14px;
+	margin: 15px 0 30px 0;
+	font-weight: light;
+	letter-spacing: 1px;
+}
+
+.btn{
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	background-color: #00B15B;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 18px;
+	text-transfom: uppercase;
+	transition: background-color 0.3s;
+}
+.btn:hover{
+	background-color: #009A4F;
+}
+
 #app{
 	height: 100%;
 	position: relative;
@@ -38,8 +89,21 @@ a:hover,button:hover {
 .word span.active{
 	background: rgba(0, 240, 0, 0.5);
 }
-
-
+.word.fade{
+	animation: fadeOut 0.5s linear;
+}
+@keyframes fadeOut{
+	0%{
+		opacity: 1;
+		filter: blur(0);
+		transform: scale(1);
+	}
+	100%{
+		opacity: 0;
+		filter: blur(50px);
+		transform: scale(3);
+	}
+}
 
 
 
@@ -55,7 +119,9 @@ a:hover,button:hover {
 	background: yellow;
 	transform-origin: center right;
 	background-color: #12EA00;
-	animation: play 10s linear;
+}
+.bottom-nav .progress-bar.active{
+	animation: play 30s linear;
 }
 @keyframes play{
 	0%{
