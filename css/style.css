@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	height: 100%;
+}
+body{
+	font-family: 'Poppins',Arial,sans-serif;
+	background-color: #fff;
+	color: #00B15B;
+}
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	color: #44CA89;
+}
+a:hover,button:hover {
+	cursor: pointer;
+}
+
+#app{
+	height: 100%;
+	position: relative;
+}
+
+.word{
+	padding: 10px 15px;
+	font-size: 20px;
+	border-radius: 20px;
+	background: red;
+	position: absolute;
+	color: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.word span.active{
+	background: rgba(0, 240, 0, 0.5);
+}
+
+
+
+
+
+.bottom-nav{
+	height: 55px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.bottom-nav .progress-bar{
+	height: 5px;
+	width: 100%;
+	background: yellow;
+	transform-origin: center right;
+	background-color: #12EA00;
+	animation: play 10s linear;
+}
+@keyframes play{
+	0%{
+		transform: scaleX(1);
+		background-color: #90FF00;
+	}
+	50%{
+		transform: scaleX(0.5);
+		background-color: #FFDD00;
+	}
+	100%{
+		transform: scaleX(0);
+		background-color: #FF3800;
+	}
+}
+.bottom-nav .nav{
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3vw;
+}
