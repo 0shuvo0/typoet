@@ -20,15 +20,15 @@
 				Random words will appear and you have to spell them before time ends.</p>
 			<div class="difficulty-select">
 				<div class="input-group">
-					<input type="radio" name="difficulty" value="10" id="easy" onchange="setDifficulty(10)" checked>
+					<input type="radio" name="difficulty-b" value="10" id="easy" onchange="setDifficulty(10)" checked>
 					<label for="easy">easy</label>
 				</div>
 				<div class="input-group">
-					<input type="radio" name="difficulty" value="12" id="normal" onchange="setDifficulty(12)">
+					<input type="radio" name="difficulty-b" value="12" id="normal" onchange="setDifficulty(12)">
 					<label for="normal">normal</label>
 				</div>
 				<div class="input-group">
-					<input type="radio" name="difficulty" value="15" id="hard" onchange="setDifficulty(15)">
+					<input type="radio" name="difficulty-b" value="15" id="hard" onchange="setDifficulty(15)">
 					<label for="hard">hard</label>
 				</div>
 			</div>
@@ -39,6 +39,20 @@
 		<div class="body died">
 			<h2 class="finalMsg">Your Time Is Up</h2>
 			<p class="info">Thank you for participating in our game, we hope you had fun playing it.</p>
+			<div class="difficulty-select">
+				<div class="input-group">
+					<input type="radio" name="difficulty" value="10" id="easy-b" onchange="setDifficulty(10)" checked>
+					<label for="easy-b">easy</label>
+				</div>
+				<div class="input-group">
+					<input type="radio" name="difficulty" value="12" id="normal-b" onchange="setDifficulty(12)">
+					<label for="normal-b">normal</label>
+				</div>
+				<div class="input-group">
+					<input type="radio" name="difficulty" value="15" id="hard-b" onchange="setDifficulty(15)">
+					<label for="hard-b">hard</label>
+				</div>
+			</div>
 			<div class="nav">
 				<button class="btn start-game" onclick="start()">Start Again</button>
 			</div>

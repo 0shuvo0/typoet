@@ -133,8 +133,9 @@ function init(){
 
 function timer(){
 	renderer = setTimeout(function(){
+		gameHasStarted = false;
 		modal.classList.remove("hide");
-	}, 60000);
+	}, 2000);
 }
 
 function start(){
