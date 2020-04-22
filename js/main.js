@@ -129,7 +129,7 @@ function init(){
 function timer(){
 	renderer = setTimeout(function(){
 		modal.classList.remove("hide");
-	}, 40000);
+	}, 60000);
 }
 
 function start(){
