@@ -121,7 +121,7 @@ a:hover,button:hover {
 	background-color: #12EA00;
 }
 .bottom-nav .progress-bar.active{
-	animation: play 30s linear;
+	animation: play 40s linear;
 }
 @keyframes play{
 	0%{

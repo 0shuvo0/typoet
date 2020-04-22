@@ -14,7 +14,8 @@ var scoreEl = document.querySelector(".scoreEl");
 var score = 0;
 var level = 0;
 var progressBar = document.querySelector('.progress-bar');
-
+var modal = document.querySelector('.modal');
+var renderer;
 
 function rand(min, max){
 	return Math.round((Math.random() * (max - min)) + min);
@@ -53,6 +54,21 @@ function render(){
 	}
 }
 
+function highlight(){
+	for(var i  = 0; i < typedStr.length; i++){
+		var c = typedStr[i];
+		for(var _el of wordEls){
+			var el = _el.el;
+			var spans = el.querySelectorAll('span');
+			if(i >= spans.length) continue
+			var t = spans[i].innerText;
+			if(t === c){
+				spans[i].classList.add("active");
+			}
+		}
+	}
+}
+
 function clearHighlighted(){
 	for(var _el of wordEls){
 		var el = _el.el;
@@ -60,6 +76,13 @@ function clearHighlighted(){
 		for(var span of  spans){
 			span.classList.remove("active");
 		}
+	}
+}
+
+function clearWords(){
+	var ps = document.querySelectorAll(".word");
+	for(var p of ps){
+		app.removeChild(p);
 	}
 }
 
@@ -74,42 +97,25 @@ function matchCheck(){
 		score += 10;
 		showTyped();
 		showScore();
+		wordEls = wordEls.filter(function(e){
+			return e.word !== o.word;
+		});
+		if(wordEls.length < 1){
+			next();
+		}
 		setTimeout(function(){
 			app.removeChild(o.el);
-			wordEls = wordEls.filter(function(e){
-				return e.word !== o.word;
-			});
 		}, 500);
 		return;
 	}
-	for(var i  = 0; i < typedStr.length; i++){
-		var c = typedStr[i];
-		for(var _el of wordEls){
-			var el = _el.el;
-			var spans = el.querySelectorAll('span');
-			if(i >= spans.length) continue
-			var t = spans[i].innerText;
-			if(t === c){
-				if(!spans[i].classList.contains("active")){
-					spans[i].classList.add("active")
-				}
-			}else{
-				if(spans[i].classList.contains("active")){
-					spans[i].classList.remove("active")
-				}
-			}
-		}
-	}
+	highlight();
 }
 
 function init(){
 	progressBar.classList.remove("active");
 	typedStr = "";
 	wordEls = [];
-	var ps = document.querySelectorAll(".word");
-	for(var p of ps){
-		app.removeChild(p);
-	}
+	clearWords();
 	fill();
 	render();
 	showTyped();
@@ -117,13 +123,31 @@ function init(){
 	progressBar.classList.add("active");
 }
 
+function timer(){
+	renderer = setTimeout(function(){
+		modal.classList.remove("hide");
+	}, 40000);
+}
 
 function start(){
-	var modal = document.querySelector('.modal');
 	modal.classList.add("hide");
 	modal.querySelector('.body.welcome').style.display = "none";
 	modal.querySelector('.body.died').style.display = "block";
+	level = 0;
 	init();
+	timer();
+}
+
+function next(){
+	clearTimeout(renderer);
+	level++;
+	timer();
+	if(level < types.length){
+		init();
+		return;
+	}
+	modal.classList.remove("hide");
+	document.querySelector(".finalMsg").innerText = "Game Completed!!!";
 }
 
 
@@ -131,6 +155,7 @@ function start(){
 
 window.addEventListener('keydown', function(e){
 	var k = e.key;
+	if(k === " ") return;
 	if(k === "Backspace"){
 		if(typedStr === "") return;
 		typedStr = typedStr.substr(0, typedStr.length - 1);
