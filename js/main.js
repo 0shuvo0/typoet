@@ -1,4 +1,3 @@
-var paragraph = "really dont know what to type so imma just go brrrrr";
 var types = [
 	["one", "sun", "fun", "bye", "hi", "go", "bro", "low", "call", "sky"],
 	["seven", "twin", "between", "space", "void", "empty", "crush", "angry", "rude", "crude"],
