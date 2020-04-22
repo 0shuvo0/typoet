@@ -1,10 +1,10 @@
 var types = [
-	["one", "sun", "fun", "bye", "hi", "go", "bro", "low", "call", "sky"],
-	["seven", "twin", "between", "space", "void", "empty", "crush", "angry", "rude", "crude"],
-	["typewriter", "democracy", "diplomatic", "hypothesis", "pythagoras", "trapezium", "gymnasium", "conspicuous", "moment", "spectrum"],
-	["pulchritudinous", "consanguineous", "psychotomimetic", "trichotillomania", "omphaloskepsis", "myrmecophilous", "xenotransplantation", "embourgeoisement", "polyphiloprogenitive", "tergiversation"]
+	["one", "sun", "fun", "bye", "hi", "go", "bro", "low", "call", "sky", "joy", "bull", "bat", "cat", "odd"],
+	["seven", "twin", "round", "space", "void", "empty", "crush", "angry", "rude", "crude", "even", "swim", "string", "team", "dream"],
+	["typewriter", "democracy", "diplomatic", "hypothesis", "pythagoras", "trapezium", "gymnasium", "conspicuous", "moment", "spectrum", "analysis", "dentist", "inovation", "coding", "humanoid"],
+	["pulchritudinous", "consanguineous", "psychotomimetic", "trichotillomania", "omphaloskepsis", "myrmecophilous", "xenotransplantation", "embourgeoisement", "polyphiloprogenitive", "tergiversation", "impedimenta", "jackasseries", "connecticutian", "demonitization", "horizontal"]
 ];
-
+var dl = 10;
 var app = document.getElementById("app");
 var typedStr = "";
 var typed = document.querySelector('.typed');
@@ -21,6 +21,10 @@ function rand(min, max){
 	return Math.round((Math.random() * (max - min)) + min);
 }
 
+function setDifficulty(v){
+	dl = parseInt(v);
+}
+
 function showTyped(){
 	typed.innerText = typedStr || "Start typing ...";
 }
@@ -31,13 +35,13 @@ function showScore(){
 
 function fill(){
 	var  words = types[level];
-	for(var i = 0; i < words.length; i++){
+	for(var i = 0; i < dl; i++){
 		var p = document.createElement("p");
 		p.classList.add("word");
 		var it = "";
 		var chars = words[i].split("");
 		for(var c of chars){
-			it += "<span>" + c + "</span>"
+			it += "<span>" + c + "</span>";
 		}
 		p.innerHTML = it;
 		wordEls.push({el: p, word: words[i]});

@@ -85,7 +85,7 @@ a:hover,button:hover {
 	position: absolute;
 	color: #fff;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 5px rgba(0, 0, 0, 0.1);
-	transition: top 0.3s, left 0.3s;
+	transition: top 0.5s, left 0.5s;
 }
 .word span.active{
 	background: rgba(0, 240, 0, 0.5);
@@ -104,6 +104,13 @@ a:hover,button:hover {
 		filter: blur(50px);
 		transform: scale(3);
 	}
+}
+
+
+.difficulty-select{
+	display: flex;
+	 justify-content: space-between;
+	margin: -1vw 0 2vw 0;
 }
 
 
