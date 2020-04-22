@@ -135,7 +135,7 @@ function timer(){
 	renderer = setTimeout(function(){
 		gameHasStarted = false;
 		modal.classList.remove("hide");
-	}, 2000);
+	}, 60000);
 }
 
 function start(){
