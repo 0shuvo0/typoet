@@ -85,6 +85,7 @@ a:hover,button:hover {
 	position: absolute;
 	color: #fff;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 5px rgba(0, 0, 0, 0.1);
+	transition: top 0.3s, left 0.3s;
 }
 .word span.active{
 	background: rgba(0, 240, 0, 0.5);

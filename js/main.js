@@ -2,13 +2,14 @@ var paragraph = "really dont know what to type so imma just go brrrrr";
 var types = [
 	["one", "sun", "fun", "bye", "hi", "go", "bro", "low", "call", "sky"],
 	["seven", "twin", "between", "space", "void", "empty", "crush", "angry", "rude", "crude"],
-	["typewriter", "democracy", "diplomatic", "hypothesis", "pythagoras", "trapezium", "gymnasium", "conspicuous", "moment", "spectrum"]
+	["typewriter", "democracy", "diplomatic", "hypothesis", "pythagoras", "trapezium", "gymnasium", "conspicuous", "moment", "spectrum"],
+	["pulchritudinous", "consanguineous", "psychotomimetic", "trichotillomania", "omphaloskepsis", "myrmecophilous", "xenotransplantation", "embourgeoisement", "polyphiloprogenitive", "tergiversation"]
 ];
 
 var app = document.getElementById("app");
 var typedStr = "";
 var typed = document.querySelector('.typed');
-var bgs = ["#FFB500", "#FF00C8", "#8900FF", "#006CFF"];
+var bgs = ["#f44336", "#9c27b0", "#673ab7", "#2196f3", "#009688", "#4caf50", "#ff9800", "#795548", "#000000", "#607d8b"];
 var wordEls = [];
 var scoreEl = document.querySelector(".scoreEl");
 var score = 0;
@@ -22,7 +23,7 @@ function rand(min, max){
 }
 
 function showTyped(){
-	typed.innerText = typedStr;
+	typed.innerText = typedStr || "Start typing ...";
 }
 
 function showScore(){
@@ -40,17 +41,20 @@ function fill(){
 			it += "<span>" + c + "</span>"
 		}
 		p.innerHTML = it;
-		p.style.backgroundColor = bgs[rand(0, bgs.length - 1)];
-		p.style.left =  rand(10, innerWidth - 100) + "px";
-		p.style.top = rand(5, innerHeight - 100) + "px";
 		wordEls.push({el: p, word: words[i]});
 	}
 	
 }
 
 function render(){
-	for(var p of wordEls){
-		app.appendChild(p.el);
+	for(var el of wordEls){
+		var p = el.el;
+		p.style.backgroundColor = bgs[rand(0, bgs.length - 1)];
+		p.style.left =  rand(10, innerWidth - ((level + 1) * 70)) + "px";
+		p.style.top = rand(5, innerHeight - 100) + "px";
+		app.appendChild(p);
+		p.style.left =  rand(10, innerWidth - ((level + 1) * 70)) + "px";
+		p.style.top = rand(5, innerHeight - 100) + "px";
 	}
 }
 
@@ -118,7 +122,7 @@ function init(){
 	clearWords();
 	fill();
 	render();
-	showTyped();
+	typed.innerText = "Start typing ...";
 	showScore();
 	progressBar.classList.add("active");
 }
