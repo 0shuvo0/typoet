@@ -143,6 +143,7 @@ function start(){
 	modal.querySelector('.body.welcome').style.display = "none";
 	modal.querySelector('.body.died').style.display = "block";
 	level = 0;
+	score = 0;
 	init();
 	timer();
 	gameHasStarted = true;
