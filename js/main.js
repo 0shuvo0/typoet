@@ -16,6 +16,7 @@ var level = 0;
 var progressBar = document.querySelector('.progress-bar');
 var modal = document.querySelector('.modal');
 var renderer;
+var gameHasStarted = false;
 
 function rand(min, max){
 	return Math.round((Math.random() * (max - min)) + min);
@@ -143,6 +144,7 @@ function start(){
 	level = 0;
 	init();
 	timer();
+	gameHasStarted = true;
 }
 
 function next(){
@@ -161,6 +163,10 @@ function next(){
 
 
 window.addEventListener('keydown', function(e){
+	if(!gameHasStarted){
+		start();
+		return;
+	}
 	var k = e.key;
 	if(k === " ") return;
 	if(k === "Backspace"){
